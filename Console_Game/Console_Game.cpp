@@ -1,4 +1,6 @@
 ﻿#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
 
 #define MAP_WIDTH		10
 #define MAP_HEIGHT	10
@@ -7,10 +9,12 @@
 #define WALL				1
 #define GEM				2
 
-#define LEFT				1
-#define RIGHT				2
-#define UP					3
-#define DOWN				4
+#define EXTRA				224
+
+#define LEFT				75
+#define RIGHT				77
+#define UP					72
+#define DOWN				80
 #define EXIT				0
 
 int main()
@@ -32,7 +36,7 @@ int main()
 	int playerY = 0;
 	int value = 0;
 
-	while (true)
+	while (1)
 	{
 		for (int y = 0; y < MAP_HEIGHT; y++)
 		{
@@ -56,8 +60,11 @@ int main()
 			printf("\n");
 		}
 
-		printf("1.왼쪽 2.오른쪽 3.위 4.아래 0.종료\n");
-		scanf("%d", &value);
+		value = -1;
+		if (kbhit())
+		{
+			value = getch();
+		}
 
 		switch (value)
 		{
@@ -75,6 +82,7 @@ int main()
 					playerY = 0;
 				}
 			}
+
 			break;
 		case RIGHT:
 			if (playerX + 1 < MAP_WIDTH)
@@ -90,6 +98,7 @@ int main()
 					playerY = 0;
 				}
 			}
+
 			break;
 		case UP:
 			if (playerY - 1 >= 0)
@@ -105,6 +114,7 @@ int main()
 					playerY = 0;
 				}
 			}
+
 			break;
 		case DOWN:
 			if (playerY + 1 < MAP_HEIGHT)
@@ -120,13 +130,18 @@ int main()
 					playerY = 0;
 				}
 			}
+
 			break;
 		default:
-			if (value == EXIT) return 0;
-
-			printf("잘못된 값을 입력하셨습니다.\n");
+			if (value == EXIT)
+				return 0;
+			else if (value != -1)
+				printf("잘못된 값을 입력하셨습니다.\n");
 
 			break;
 		}
+
+		_sleep(100);
+		system("cls");
 	}
 }
