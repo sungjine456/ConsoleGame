@@ -1,6 +1,7 @@
 ﻿#include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
+#include <Windows.h>
 
 #define MAP_WIDTH		10
 #define MAP_HEIGHT	10
@@ -16,6 +17,41 @@
 #define UP					72
 #define DOWN				80
 #define EXIT				0
+
+enum CURSOR_TYPE
+{
+	NO_CURSOR,
+	SOLID_CURSOR,
+	NORMAL_CURSOR
+};
+
+void GotoXY(int x, int y)
+{
+	COORD pos = { 2 * x, y };
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
+}
+void SetCursorType(CURSOR_TYPE c)
+{
+	CONSOLE_CURSOR_INFO curInfo;
+	switch (c)
+	{
+	case NO_CURSOR:
+		curInfo.dwSize = 1;
+		curInfo.bVisible = FALSE;
+		break;
+	case SOLID_CURSOR:
+		curInfo.dwSize = 100;
+		curInfo.bVisible = TRUE;
+		break;
+	case NORMAL_CURSOR:
+		curInfo.dwSize = 20;
+		curInfo.bVisible = TRUE;
+		break;
+	default:
+		break;
+	}
+	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &curInfo);
+}
 
 int main()
 {
@@ -36,12 +72,15 @@ int main()
 	int playerY = 0;
 	int value = 0;
 
+	SetCursorType(NO_CURSOR);
+
 	while (1)
 	{
 		for (int y = 0; y < MAP_HEIGHT; y++)
 		{
 			for (int x = 0; x < MAP_WIDTH; x++)
 			{
+				GotoXY(x, y);
 				if (map[y][x] == ROAD)
 				{
 					if (playerX == x && playerY == y)
@@ -57,7 +96,6 @@ int main()
 				if (map[y][x] == GEM)
 					printf("▼");
 			}
-			printf("\n");
 		}
 
 		value = -1;
@@ -140,8 +178,5 @@ int main()
 
 			break;
 		}
-
-		_sleep(100);
-		system("cls");
 	}
 }

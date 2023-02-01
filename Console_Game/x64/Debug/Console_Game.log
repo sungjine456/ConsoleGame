@@ -1,4 +1,7 @@
 ﻿  Console_Game.cpp
-C:\Users\SBSGAME\Desktop\sung\Console_Game\Console_Game\Console_Game.cpp(64,7): warning C4996: 'kbhit': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _kbhit. See online help for details.
-C:\Users\SBSGAME\Desktop\sung\Console_Game\Console_Game\Console_Game.cpp(66,12): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  Console_Game.vcxproj -> C:\Users\SBSGAME\Desktop\sung\Console_Game\x64\Debug\Console_Game.exe
+C:\Users\SBSGAME\Desktop\sung\Console_Game\Console_Game\Console_Game.cpp(30,18): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+C:\Users\SBSGAME\Desktop\sung\Console_Game\Console_Game\Console_Game.cpp(30,23): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+C:\Users\SBSGAME\Desktop\sung\Console_Game\Console_Game\Console_Game.cpp(102,7): warning C4996: 'kbhit': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _kbhit. See online help for details.
+C:\Users\SBSGAME\Desktop\sung\Console_Game\Console_Game\Console_Game.cpp(104,12): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+LINK : fatal error LNK1168: C:\Users\SBSGAME\Desktop\sung\Console_Game\x64\Debug\Console_Game.exe을(를) 쓰기용으로 열 수 없습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(1074,5): error MSB6006: "link.exe"이(가) 종료되었습니다(코드: 1168).
