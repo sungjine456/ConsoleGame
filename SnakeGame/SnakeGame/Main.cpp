@@ -167,6 +167,15 @@ int main()
 
 		GotoXY(snakeX[HEAD], snakeY[HEAD]);
 		printf("¡ß");
+
+		for (int i = 1; i < length; i++)
+		{
+			if (snakeX[HEAD] == snakeX[i] && snakeY[HEAD] == snakeY[i])
+			{
+				Initialized();
+			}
+		}
+
 		Sleep(speed);
 	}
 }
