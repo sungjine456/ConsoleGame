@@ -21,9 +21,27 @@
     <ClCompile Include="Util.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Initialized.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyProcess.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+	<ClInclude Include="GameProcess.cpp">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Util.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Initialized.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="GameProcess.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyProcess.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
